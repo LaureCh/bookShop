@@ -7,13 +7,13 @@
         "ext-iconv": "*",
         "doctrine/doctrine-bundle": "^1.10",
         "sensio/framework-extra-bundle": "^5.2",
-        "symfony/console": "4.2.*",
-        "symfony/dotenv": "4.2.*",
+        "symfony/console": "4.4.*",
+        "symfony/dotenv": "4.4.*",
         "symfony/flex": "^1.1",
-        "symfony/framework-bundle": "4.2.*",
+        "symfony/framework-bundle": "4.4.*",
         "symfony/orm-pack": "^1.0",
-        "symfony/twig-bundle": "4.2.*",
-        "symfony/yaml": "4.2.*"
+        "symfony/twig-bundle": "4.4.*",
+        "symfony/yaml": "4.4.*"
     },
     "config": {
         "preferred-install": {
@@ -57,11 +57,11 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.2.*"
+            "require": "4.4.*"
         }
     },
     "require-dev": {
         "symfony/maker-bundle": "^1.14",
-        "symfony/web-server-bundle": "4.2.*"
+        "symfony/web-server-bundle": "4.4.*"
     }
 }
