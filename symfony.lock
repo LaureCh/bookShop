@@ -95,6 +95,9 @@
             "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
         }
     },
+    "symfony/asset": {
+        "version": "v4.4.3"
+    },
     "symfony/cache": {
         "version": "v4.2.1"
     },
@@ -207,6 +210,15 @@
             "branch": "master",
             "version": "4.2",
             "ref": "5374e24d508ba8fd6ba9eb15170255fdb778316a"
+        }
+    },
+    "symfony/translation": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "2ad9d2545bce8ca1a863e50e92141f0b9d87ffcd"
         }
     },
     "symfony/twig-bridge": {

@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Product;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ProductController extends AbstractController
 {
@@ -13,9 +14,20 @@ class ProductController extends AbstractController
      */
     public function getProducts()
     {
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAllSortedAsc();
         return $this->render('product/list.html.twig', [
             'products' => $products,
+        ]);
+    }
+
+    /**
+     * @Route("/product/{product_id}", methods={"GET","HEAD"}, name="product_show")
+     * @ParamConverter("product", class="App:Product", options={"id"="product_id"})
+     */
+    public function getProduct($product)
+    {
+        return $this->render('product/show.html.twig', [
+            'product' => $product,
         ]);
     }
 

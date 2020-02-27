@@ -1,0 +1,23 @@
+{% extends 'pageLayout.html.twig' %}
+
+{% block main %}
+<div class=container>
+{% block title %}{{ parent() }} - Product list{% endblock %}
+
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.title }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ product.originalTitle }} - {{ product.country }}</h6>
+    <p class="card-text">{{ product.description }}</p>
+    <p class="card-text">{{ product.type }}</p>
+  </div>
+   <div class="card-footer text-muted">{{product.price}} $ </div>
+</div>
+</br>
+
+<button type="button" class="btn btn-outline-info btn-lg" href="{{ path('products') }}">Retour liste</button>
+
+      
+
+{% endblock %} 

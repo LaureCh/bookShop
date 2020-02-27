@@ -1,0 +1,137 @@
+{% extends 'pageLayout.html.twig' %}
+
+{% block main %}
+<div class=container>
+{% block title %}{{ parent() }} - Shopping Cart{% endblock %}
+	{% if products is empty %}
+		<div class="card">
+  			<div class="card-header">
+    			Featured
+  			</div>
+		<div class="card-body">
+			<h5 class="card-title">{{ 'empty_shopping_cart'|trans() }}</h5>
+			<a href="{{ url('products')}}" class="btn btn-primary">Retour à la liste produits</a>
+		</div>
+		</div>
+	{% else %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th class="table-col-price">{{ 'price'|trans() }}</th>
+            <th class="table-col-quantity">{{ 'quantity'|trans() }}</th>
+            <th class="table-col-price">{{ 'total'|trans() }}</th>
+        </tr>
+        </thead>
+        <tbody>
+		{% for id, item in products %}
+            {% set product = item.product %}
+            <tr>
+                <td class="table-col-title">{{ product.getTitle() }}</td>
+                <td class="table-col-price">{{ item.price |number_format(2) }} €</td>
+                <td class="table-col-quantity">{{ item.quantity }}</td>
+                <td class="table-col-price">
+                    {{ (item.price *  item.quantity)|number_format(2) }} €
+                    <a href="{{ url('remove_product', { product_id: id }) }}" class="btn-floating waves-effect waves-light grey"><i class="material-icons">close</i></a>
+                </td>
+            </tr>
+        {% endfor %}
+		
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col s6 offset-s6 ">
+            <table class="bordered right-align cart-total">
+                <tr>
+                    <td class="right-align"><strong>{{ 'total'|trans() }}</strong></td>
+                    <td class="right-align table-col-price">{{ total|number_format(2) }}€</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 right-align">
+            <a href="{{ url("products") }}" class="btn-large red waves-effect waves-light btn-vaidation">{{ 'order'|trans() }}</a>
+        </div>
+    </div>
+</div>
+{% endif %}	
+{% endblock %}
+{# <body onload="doShowAll()">
+<table id="list"></table>
+
+
+<table class="table" onload="doShowAll()">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in products %}
+        <tr>
+            <td> <a href="{{ path('product_show', {product_id : item.id}) }}"> {{ item.title }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.country }}</td>
+            {% if item.originalTitle != null %}
+              <td>{{ item.originalTitle }}</td>
+            {% else %}
+              <td></td>
+            {% endif %}  
+            {# <td>{{ item.editionYear.toString() }}</td> #}
+           {# <td>{{ item.type }}</td>
+            <td>{{ item.rank }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.productType }}</td>
+            <!-- Button trigger modal -->
+            <td>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fas fa-shopping-basket"></i>
+              </button>
+            </td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{# <body onload="doShowAll()">
+	<h2>Shopping Cart</h2>
+	<p>Hello</p>
+	<form name=ShoppingList> #}
+		{# <div id="main"><script src="Storage.js"></script>
+			<table>
+				<tr>
+
+					<td><b>Item:</b><input type=text name=name></td>
+					<td><b>Quantity:</b><input type=text name=data></td>
+
+				</tr>
+
+				<tr>
+					<td>
+					    <input type=button value="Save"   onclick="SaveItem()"> 
+					    <input type=button value="Update" onclick="ModifyItem()"> 
+					    <input type=button value="Delete" onclick="RemoveItem()">
+					</td>
+				</tr>
+			</table>
+		</div> #}
+
+		{# <div id="items_table">
+			<h3>Shopping List</h3>
+			<table id="list"></table>
+			<p>
+				<label><input type=button value="Clear" onclick="ClearAll()">
+					<i>* Delete all items</i></label>
+			</p>
+		</div>
+	</form> #}
+{# 
+</body>
+</html>
+{% endblock %}  #}

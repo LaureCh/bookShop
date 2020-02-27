@@ -23,11 +23,12 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=3)
+     * 
      */
     private $country;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $editionYear;
 
