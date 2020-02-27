@@ -29,7 +29,7 @@ class ShoppingCartController extends AbstractController
     }
 
 /**
-     * @Route("/addproduct/{product_id}/{quantity}", name="add_product")
+     * @Route("/shopping/add/{product_id}/{quantity}", name="add_product")
      * @ParamConverter("product", class="App:Product", options={"id"="product_id"})
      */
     public function addProduct(Product $product, int $quantity)
@@ -40,7 +40,7 @@ class ShoppingCartController extends AbstractController
     }
 
     /**
-     * @Route("removeproduct/{product_id}", name="remove_product")
+     * @Route("/shopping/remove/{product_id}", name="remove_product")
      * @ParamConverter("product", class="App:Product", options={"id"="product_id"})
      */
     public function removeProduct(Product $product)

@@ -1,8 +1,6 @@
 empty_shopping_cart: Votre panier est vide, allez vite le remplir !
 product: Livres
-# price: Prix
-# quantity: Quantité
-# total: Total
+total: Total
+price: Prix
+quantity: Quantité
 # order: Commander
-# total: Total
-# thanks: Merci, votre paiement a bien été pris en compte
